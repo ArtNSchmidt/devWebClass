@@ -17,4 +17,13 @@ public class ProdutoRepository {
     public Optional<Produto> finById(Long id){
         return produtos.stream().filter(p -> p.getId().equals(id)).findFirst();
     }
+    public Produto save(Produto produto){
+        produto.setId(nextId++);
+        produtos.add(produto);
+        return produto;
+
+        public void deleteById(Long id){
+            produto.removeIf(p -> p.getId().equals(id));
+        }
+    }
 }
